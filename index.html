@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
 
@@ -11,50 +12,74 @@
   <header>
     <h1> Weather Dashboard </h1>
   </header>
-  
-  <!--search bar-->
-  <nav>
-    <div id="searchBar">
-      <h2> Search for a City: </h2>
-      <input type="text" placeholder="Type your city here!">
-      <input type="submit" value="submit">
-    </div>
-
-  <!---cities populate below-->
-    <section id="generatedCities">
-      <button ></button>
-    </section>
-  </nav>
-
-  <!---displays current weather-->  
-  <section id="currentWeather">
-    <h2>Placeholder Name of City</h2>
-    <p>Temp:</p>
-    <p>Wind:</p>
-    <p>Humidity</p>
+  <section id="BiggieSmalls"> <!--BiggieSmalls = Big Rapper-->
+    <!--search bar-->
+    <nav>
+      <div id="searchBar">
+        <h2> Search for a City: </h2>
+        <input type="text" placeholder="Type your city here!">
+        <input type="submit" value="Submit">
+      </div>
+      
+      <!---cities populate below-->
+      <section id="generatedCities">
+        <button >"CityName"</button>
+      </section>
+    </nav>
     
+    <!---displays current weather-->  
+    <section id="hamburgerSection">
+      
+      <section id="currentWeather">
+        <h2>Name of City</h2>
+        <p>Temp:</p>
+        <p>Wind:</p>
+        <p>Humidity</p>
+      
+    </section>
+    
+    <!---dispays 5 day forecast-->
+    <section id="FiveDayForecast">
+      <h3>5 Day Forecast:</h3>
+      <section id="ForecastCards">
+        
+        <div class="Card1">
+          <h4>Date</h4>
+          <p>Temp:</p>
+          <p>Wind:</p>
+          <p>Humidity:</p>
+        </div>
+        <div class="Card2">
+          <h4>Date + 1</h4>
+          <p>Temp:</p>
+          <p>Wind:</p>
+          <p>Humidity:</p>
+        </div>
+        <div class="Card3">
+          <h4>Date + 2</h4>
+          <p>Temp:</p>
+          <p>Wind:</p>
+          <p>Humidity:</p>
+        </div>
+        <div class="Card4">
+          <h4>Date + 3</h4>
+          <p>Temp:</p>
+          <p>Wind:</p>
+          <p>Humidity:</p>
+        </div>
+        <div class="Card5">
+          <h4>Date + 4</h4>
+          <p>Temp:</p>
+          <p>Wind:</p>
+          <p>Humidity:</p>
+        </div>
+      </section>
+    </section>
   </section>
-
-  <!---dispays 5 day forcast-->
-  <section id="5-day-forcast">
-    <h3>5-Day Forcast:</h3>
-    <div class="5Day">
-      <h4>placeholderDate</h4>
-    </div>
-    <div class="5Day">
-      <h4>placeholderDate + 1</h4>
-    </div>
-    <div class="5Day">
-      <h4>placeholderDate + 2</h4>
-    </div>
-    <div class="5Day">
-      <h4>placeholderDate + 3</h4>
-    </div>
-    <div class="5Day">
-      <h4>placeholderDate + 4</h4>
-    </div>
-  </section>
-
+  
+</section> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./assets/script.js"></script>
 </body>
 
 </html>
