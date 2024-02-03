@@ -4,44 +4,64 @@
   /* align-items: center; */
   /* height: 100vh; */
   /* margin: 0; */
-/*  */
+  /*  */
   /* background-image: url('https://source.unsplash.com/1600x900/?landscape'); */
-/* } */
-
-h1 {
-
-}
-
-#BiggieSmalls, #ForecastCards {
-  display: flex;
-  flex-direction: row;
-}
-
-nav {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
+  /* } */
   
-}
+  header {
+    background: linear-gradient(90deg, #595ad5, #3d329a);
+    color: white;
+    padding: 1px;
+    border-radius: 5px;
+    font-size: 20px;
+  }
 
-#searchBar, #generatedCities, #hamburgerSection, #CurrentCityWrapper, #FiveDayForecast {
-  display: flex;
-  flex-direction: column;
-}
-
-#hamburgerSection, #FiveDayForecast, #currentWeather {
-  width: 100%;
+  h1 {
+    display: flex;
+    justify-content: center;
+    
+  }
   
-}
+  #BiggieSmalls, #ForecastCards {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  nav {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    
+  }
+  
+  #searchBar, #generatedCities, #hamburgerSection, #CurrentCityWrapper, #FiveDayForecast {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #hamburgerSection, #FiveDayForecast, #currentWeather {
+    width: 100%;
+  }
+  
+  #hamburgerSection {
+    margin: 7px;
 
-#ForecastCards {
-  justify-content: space-around;
-}
-
-#ForecastCards div {
-  color:white;
-  background-color: #415383;
-  border-radius: 9px;
-  width: 150px;
-
-}
+  }
+  
+  #ForecastCards {
+    justify-content: space-around;
+  }
+  
+  #ForecastCards div {
+    color:white;
+    background-color: #293453;
+    border-radius: 9px;
+    width: 150px;
+    
+  }
+  
+  #currentWeather {
+    border: 1px solid cadetblue;
+    padding: 5px;
+    width: 99.5%;
+  }
