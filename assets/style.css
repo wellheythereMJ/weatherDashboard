@@ -1,0 +1,47 @@
+/* body { */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* height: 100vh; */
+  /* margin: 0; */
+/*  */
+  /* background-image: url('https://source.unsplash.com/1600x900/?landscape'); */
+/* } */
+
+h1 {
+
+}
+
+#BiggieSmalls, #ForecastCards {
+  display: flex;
+  flex-direction: row;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  
+}
+
+#searchBar, #generatedCities, #hamburgerSection, #CurrentCityWrapper, #FiveDayForecast {
+  display: flex;
+  flex-direction: column;
+}
+
+#hamburgerSection, #FiveDayForecast, #currentWeather {
+  width: 100%;
+  
+}
+
+#ForecastCards {
+  justify-content: space-around;
+}
+
+#ForecastCards div {
+  color:white;
+  background-color: #415383;
+  border-radius: 9px;
+  width: 150px;
+
+}
