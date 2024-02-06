@@ -22,7 +22,7 @@
     
   }
   
-  #BiggieSmalls, #ForecastCards {
+  #BiggieSmalls, #forecastCards {
     display: flex;
     flex-direction: row;
   }
@@ -48,11 +48,11 @@
 
   }
   
-  #ForecastCards {
+  #forecastCards {
     justify-content: space-around;
   }
   
-  #ForecastCards div {
+  #forecastCards div {
     color:white;
     background-color: #293453;
     border-radius: 9px;
