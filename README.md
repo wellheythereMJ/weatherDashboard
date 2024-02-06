@@ -4,7 +4,7 @@ This application displays weather information and forcast based on user input. P
 
 It uses HTML, CSS, Javascript, JQuery, dayjs, and OpenWeather.org API
 
-[Link to deployed application]()
+[Link to deployed application](https://wellheytheremj.github.io/weatherDashboard/)
 
 ![screenshot of weather dashboard app](./assets/WeatherDashboard.png)
 
