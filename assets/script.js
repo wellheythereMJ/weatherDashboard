@@ -1,5 +1,5 @@
-//API key 129df2e8b7a598f1885a7aee0dcc44ef
-//uses API key to pull from openweather API //d
+/*API key 129df2e8b7a598f1885a7aee0dcc44ef
+uses API key to pull from openweather API */
 function FiveDayForecast(lat, lon){
   var weatherURL = 'https://api.openweathermap.org/data/2.5/forecast?lat='+ lat +'&lon='+ lon +'&appid=129df2e8b7a598f1885a7aee0dcc44ef&units=imperial';
   
@@ -10,11 +10,10 @@ function FiveDayForecast(lat, lon){
       .then(function(data){
         console.log(data);
 
-        //inside the data.list has forcast info 8times aday for 5 days so pick the indexes that have the time you want
-//use that index you find to apply to individual cards
-//need to figure out how to get individual cards and apply information. give each card an ID and do children method as below
-
-//if you have time think about how to creat the cards dynamically
+/*inside the data.list has forcast info 8times aday for 5 days so pick the indexes that have the time you want
+use that index you find to apply to individual cards
+need to figure out how to get individual cards and apply information. give each card an ID and do children method as below
+if you have time think about how to creat the cards dynamically */
       })
 }
 
@@ -42,9 +41,9 @@ function geoCode(cityName) {
       currentWeatherdiv.children[0].textContent=data[0].name;
       currentWeather(lat, lon);
       FiveDayForecast(lat, lon);
-//add data[0].name to local storage
-//add in json stringify to add arry to local storage
-//need json parce to get out of location storage
+/*add data[0].name to local storage
+add in json stringify to add arry to local storage
+need json parce to get out of location storage */
     })
 }
 
