@@ -20,32 +20,37 @@ uses API key to pull from openweather API */
 
 var userInput = document.querySelector("#userInput");
 var currentWeatherdiv = document.querySelector("#currentWeather");
-  
+var cityList ={};
 var citySubmit = document.querySelector("#citySubmit");
     citySubmit.addEventListener("click", function(){
       userInput.value;
-      console.log(userInput.value);
       geoCode(userInput.value);
       makeButtons();
     })
-function geoCode(cityName) {
-    var requestURL = "https://api.openweathermap.org/geo/1.0/direct?q="+ cityName +"&limit=5&appid=129df2e8b7a598f1885a7aee0dcc44ef"
-    fetch(requestURL)
-    .then(function(response){
-      return response.json();
+
+    
+    $('#generatedCities').click(function(){
+      event.preventDefault();
+      var city = event.target.textContent;
+      geoCode(city);
     })
-    .then(function(data){
-      var lat = data[0].lat;
-      var lon = data[0].lon;
-      currentWeatherdiv.children[0].textContent=data[0].name;
-      currentWeather(lat, lon);
-      FiveDayForecast(lat, lon);
-      var cityList ={};
-      cityList[data[0].name]=data[0].name;
-      console.log(cityList);
-      localStorage.setItem('searchHistory', JSON.stringify(cityList));
-      
-    })
+    
+    function geoCode(cityName) {
+      var requestURL = "https://api.openweathermap.org/geo/1.0/direct?q="+ cityName +"&limit=5&appid=129df2e8b7a598f1885a7aee0dcc44ef"
+      fetch(requestURL)
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(data){
+        var lat = data[0].lat;
+        var lon = data[0].lon;
+        currentWeatherdiv.children[0].textContent=data[0].name;
+        currentWeather(lat, lon);
+        FiveDayForecast(lat, lon);
+        cityList[data[0].name]=data[0].name;
+        localStorage.setItem('searchHistory', JSON.stringify(cityList));
+        
+      })
 }
 
 function currentWeather (lat, lon) {
@@ -55,7 +60,6 @@ function currentWeather (lat, lon) {
     return response.json();
   })
   .then(function(data){
-    console.log(data);
     currentWeatherdiv.children[3].textContent="Temp: "+data.main.temp+" °F";
     currentWeatherdiv.children[4].textContent="Wind: "+data.wind.speed+" mph";
     currentWeatherdiv.children[5].textContent="Humidity: "+data.main.humidity+" %";
@@ -70,10 +74,6 @@ function FiveDayForecast (lat, lon) {
     return response.json();
   })
   .then(function(data){
-    console.log(data);
-    // currentWeatherdiv.children[1].textContent="Temp: "+data.main.temp+" °F";
-    // currentWeatherdiv.children[2].textContent="Wind: "+data.wind.speed+" mph";
-    // currentWeatherdiv.children[3].textContent="Humidity: "+data.main.humidity+" %";
     var counter = 0;
     $('#forecastCards').children('div').each(function(){
       var tempDate = data.list[counter].dt_txt.slice('', 10);
@@ -92,9 +92,8 @@ function FiveDayForecast (lat, lon) {
 }
 
 function makeButtons(){
-  var searchHistory = $('#generatedCites');
+  var searchHistory = $('#generatedCities');
   cityList = JSON.parse(localStorage.getItem('searchHistory'));
-  console.log(cityList);
   searchHistory.html('');
   for (var key in cityList){
     var button = document.createElement('button');
@@ -102,3 +101,5 @@ function makeButtons(){
     button.textContent = cityList[key];
   }
 }
+
+// makeButtons();
