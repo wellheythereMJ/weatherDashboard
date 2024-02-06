@@ -1,13 +1,3 @@
-/* body { */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* height: 100vh; */
-  /* margin: 0; */
-  /*  */
-  /* background-image: url('https://source.unsplash.com/1600x900/?landscape'); */
-  /* } */
-  
   header {
     background: linear-gradient(90deg, #595ad5, #3d329a);
     color: white;
