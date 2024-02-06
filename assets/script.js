@@ -20,14 +20,13 @@ uses API key to pull from openweather API */
 
 var userInput = document.querySelector("#userInput");
 var currentWeatherdiv = document.querySelector("#currentWeather");
-// var fiveDayCardsDiv = document.querySelector("#forecastCards");
   
 var citySubmit = document.querySelector("#citySubmit");
     citySubmit.addEventListener("click", function(){
       userInput.value;
       console.log(userInput.value);
       geoCode(userInput.value);
-
+      makeButtons();
     })
 function geoCode(cityName) {
     var requestURL = "https://api.openweathermap.org/geo/1.0/direct?q="+ cityName +"&limit=5&appid=129df2e8b7a598f1885a7aee0dcc44ef"
@@ -41,9 +40,11 @@ function geoCode(cityName) {
       currentWeatherdiv.children[0].textContent=data[0].name;
       currentWeather(lat, lon);
       FiveDayForecast(lat, lon);
-/*add data[0].name to local storage
-add in json stringify to add arry to local storage
-need json parce to get out of location storage */
+      var cityList ={};
+      cityList[data[0].name]=data[0].name;
+      console.log(cityList);
+      localStorage.setItem('searchHistory', JSON.stringify(cityList));
+      
     })
 }
 
@@ -54,16 +55,12 @@ function currentWeather (lat, lon) {
     return response.json();
   })
   .then(function(data){
-    var tempDate = data.list[counter].dt_txt.slice('', 10);
-    var year = tempDate.substr(0, 4);
-    var month = tempDate.substr(5, 2);
-    var day = tempDate.substr(8, 2);
-    var date = month +"/"+ day + "/" + year;
     console.log(data);
-    currentWeatherdiv.children[1].textContent="Temp: "+data.main.temp+" °F";
-    currentWeatherdiv.children[2].textContent="Wind: "+data.wind.speed+" mph";
-    currentWeatherdiv.children[3].textContent="Humidity: "+data.main.humidity+" %";
-    $('#currentDay').text
+    currentWeatherdiv.children[3].textContent="Temp: "+data.main.temp+" °F";
+    currentWeatherdiv.children[4].textContent="Wind: "+data.wind.speed+" mph";
+    currentWeatherdiv.children[5].textContent="Humidity: "+data.main.humidity+" %";
+    $('#currentDay').text(dayjs().format('MM/DD/YYYY'));
+    $('#weatherIcon').attr('src', "http://openweathermap.org/img/w/"+data.weather[0].icon+".png");
   })
 }
 function FiveDayForecast (lat, lon) {
@@ -92,4 +89,16 @@ function FiveDayForecast (lat, lon) {
       counter += 8
     })
   })
+}
+
+function makeButtons(){
+  var searchHistory = $('#generatedCites');
+  cityList = JSON.parse(localStorage.getItem('searchHistory'));
+  console.log(cityList);
+  searchHistory.html('');
+  for (var key in cityList){
+    var button = document.createElement('button');
+    searchHistory.append(button);
+    button.textContent = cityList[key];
+  }
 }
