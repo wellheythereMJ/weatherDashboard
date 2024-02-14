@@ -8,6 +8,8 @@ citySubmit.addEventListener("click", function () {
   userInput.value;
   geoCode(userInput.value);
 })
+
+//added event listener so enter button runs geoCode function //
 userInput.addEventListener('keypress', function(event){
   // console.log(event.target);
   // console.log(event.key);
@@ -22,6 +24,7 @@ $('#generatedCities').click(function () {
   var city = event.target.textContent;
   geoCode(city);
 })
+
 
 function geoCode(cityName) {
   var requestURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=5&appid=129df2e8b7a598f1885a7aee0dcc44ef"
